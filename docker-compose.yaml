@@ -1,0 +1,19 @@
+# Reason why stick to V2 not V3
+# https://github.com/peter-evans/docker-compose-healthcheck/issues/3#issuecomment-329037485
+version: '2.3'
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    container_name: go-class
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_DB: go-class
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d go-class"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
