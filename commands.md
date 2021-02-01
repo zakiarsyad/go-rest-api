@@ -1,3 +1,9 @@
+## go mod init
+`go mod init github.com/zakiarsyad/simple-bank`
+
+install dependecies
+`go mod tidy`
+
 ## create a migration
 1. create a migration file
 `migrate create -ext sql -dir db/migration -seq init_schema`
