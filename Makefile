@@ -16,4 +16,7 @@ sqlc:
 test:
 	go test -v -cover ./...
 
-.PHONY: postgres dropdb migrate-up migrate-down sqlc
+start:
+	go run main.go
+
+.PHONY: postgres dropdb migrate-up migrate-down sqlc start
